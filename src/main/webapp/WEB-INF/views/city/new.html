@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New city</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/city}" th:object="${city}">
+    <label for="name">Название города: </label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">error</div>  <!--#fields - получение доступа к полям-->
+    <br/>
+    <label for="population">Население: </label>
+    <input type="text" th:field="*{population}" id="population"/>
+    <div style="color:red" th:if="${#fields.hasErrors('population')}" th:errors="*{population}">error</div>
+    <br/>
+    <label for="code">Код города: </label>
+    <input type="text" th:field="*{code}" id="code"/>
+    <div style="color:red" th:if="${#fields.hasErrors('code')}" th:errors="*{code}">error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+
+</body>
+</html>

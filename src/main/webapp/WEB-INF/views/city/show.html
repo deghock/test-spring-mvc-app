@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<p th:text="${city.getId() + '. ' + city.getName()}">VALUE</p>
+<p th:text="${'Население: ' + city.getPopulation()}">VALUE</p>
+<p th:text="${'Код города: ' + city.getCode()}">VALUE</p>
+
+<a th:href="@{/city/{id}/edit(id=${city.getId()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/city/{id}(id=${city.getId()})}">
+    <input type="submit" value="Delete"/>
+</form>
+
+</body>
+</html>
